@@ -1,0 +1,49 @@
+
+{% extends './layuot.html' %}
+
+{% block main %}
+
+
+
+<div class="col-md-8">
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Raza</th>
+            <th>Color</th>
+            <th>Alergico</th>
+            <th>Observaciones</th>
+        </thead>
+
+        <tbody>
+            {% for mascota in mascota %}
+            <tr>
+                <td>{{mascota[0]}}</td>
+                <td>{{mascota[1]}}</td>
+                <td>{{mascota[2]}}</td>
+                <td>{{mascota[3]}}</td>
+                <td>{{mascota[4]}}</td>
+                <td>{{mascota[5]}}</td>
+                <td>{{mascota[6]}}</td>
+                <td>{{mascota[7]}}</td>
+                <td>    
+                <form action="/editar" method="post">
+                        <input type="hidden" name="codigo" id="" value="{{mascota[0]}}">
+                        <button type="submit" class="btn btn-secondary">Editar</button>
+                    </form>
+                </td>
+            <!--<td>
+                    <form action="/borrar" method="post">
+                        <input type="hidden" name="codigo" id="" value="{{mascota[0]}}">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>-->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

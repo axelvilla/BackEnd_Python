@@ -1,0 +1,52 @@
+{% extends './layuot.html' %}
+
+{% block main %}
+    <main class="text-center align-middle position-relative">
+        <form class="form" action="/ingresar_cliente" method="POST">
+            <div class="mb-3 col-6 text-start">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre">
+              </div>
+
+              <div class="mb-3 col-6 text-start">
+                <label class="form-label">Apellido</label>
+                <input type="text" class="form-control" name="apellido">
+              </div>
+
+              <div class="mb-3 col-6 text-start">
+                <label class="form-label">Raza</label>
+                <input type="text" class="form-control" name="raza">
+              </div>
+
+              <div class="mb-3 col-6 text-start">
+                <label class="form-label">Color</label>
+                <input type="text" class="form-control" name="color">
+              </div>
+
+              <div class="mb-3 col-6 text-start">
+                <label class="form-label">Alergico</label>
+                <div class="input-group mb-3">
+                    <select class="form-select" name="alergico" id="inputGroupSelect01">
+                      <option selected>Seleccionar</option>
+                      <option value="Si">1- Si</option>
+                      <option value="No">2- No</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="mb-3 col-6 text-start">
+                <label class="form-label">Observaciones</label>
+                <input type="text-area" class="form-control" name="observaciones">
+              </div>
+
+              <div class="mb-3 col-6">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Cancelar</button>
+              </div>
+        </form>
+    </main>
+
+
+
+
+{% endblock %}

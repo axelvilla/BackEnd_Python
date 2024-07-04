@@ -1,0 +1,22 @@
+CREATE DATABASE veterinaria;
+USE veterinaria;
+
+CREATE TABLE `mascota` (
+  `id` int(11) NOT NULL PRIMARY KEY,
+  `nombre` varchar(40) NOT NULL,
+  `apellido` varchar(40) NOT NULL,
+  `raza` varchar(80) NOT NULL,
+  `color` varchar(80) NOT NULL,
+  `alergico` varchar(255) DEFAULT NULL,
+  `observaciones` varchar(288) DEFAULT NULL
+)
+
+CREATE TABLE `duenio` (
+  `id` int(11) NOT NULL PRIMARY KEY,
+  `nombre` varchar(40) NOT NULL,
+  `apellido` varchar(40) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `mascota_id` int(11),
+  FOREIGN KEY (`mascota_id`) REFERENCES `mascota` (`id`)
+)
+
