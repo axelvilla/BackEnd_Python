@@ -77,7 +77,6 @@ def editar():
 
 @app.route('/actualizar', methods = ['POST'])
 def actualizar():
-    mascota = ()
     codigo = request.form['codigo']
     nombre = request.form['nombre']
     apellido = request.form['apellido']
@@ -88,15 +87,13 @@ def actualizar():
     try:
          conexion = obtener_conexion()
          cursor = conexion.cursor()
-         cursor.execute("UPDATE mascota SET nombre = %s, apellido = %s, raza = %s, color = %s, alergico = %s, observaciones = %s WHERE id = %s", [nombre, apellido, raza, color, alergico, observaciones,codigo])
-         #mascota = cursor.fetchall()
+         cursor.execute("UPDATE mascota SET nombre = %s, apellido = %s, raza = %s, color = %s, alergico = %s, observaciones = %s WHERE id = %s", [nombre, apellido,raza,color,alergico,observaciones,codigo])
+         cursor.fetchall()
          conexion.commit()
-         
     finally:
          cursor.close()
          conexion.close()
-    #return render_template('ver_datos.html', mascota = mascota)
-    return redirect('/ver_datos')
+    return redirect('ver_datos')
 
 @app.route('/borrar', methods = ['POST'])
 def borrar():

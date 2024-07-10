@@ -1,51 +1,59 @@
-{% extends './layuot.html' %}
+{% extends './layuot.html' %} {% block main %}
+<main class="text-center align-middle position-relative">
+  <form class="form" action="/ingresar_cliente" method="POST">
+    <div class="row">
+      <div class="mb-3 col-4 text-start">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="nombre" />
+      </div>
 
-{% block main %}
-    <main class="text-center align-middle position-relative">
-        <form class="form" action="/ingresar_cliente" method="POST">
-            <div class="mb-3 col-6 text-start">
-                <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre">
+      <div class="mb-3 col-4 text-start">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" name="apellido" />
+      </div>
+
+      <div class="mb-3 col-3 text-start">
+        <label class="form-label">Raza</label>
+        <input type="text" class="form-control" name="raza" />
+      </div>
+
+      <div class="mb-3 col-3 text-start">
+        <label class="form-label">Color</label>
+        <input type="text" class="form-control" name="color" />
+      </div>
+
+      <div class="mb-3 col-3 text-start">
+        <label class="form-label">Alergico</label>
+        <div class="input-group mb-3">
+          <select class="form-select" name="alergico" id="inputGroupSelect01">
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3 col-6 text-start">
+        <label class="form-label">Observaciones</label>
+        <textarea class="form-control" name="observaciones"></textarea>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-11 mb-3">
+                <a href="/"
+        ><button type="button" class="btn btn-danger">Cancelar</button></a
+      >
               </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido">
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Raza</label>
-                <input type="text" class="form-control" name="raza">
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Color</label>
-                <input type="text" class="form-control" name="color">
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Alergico</label>
-                <div class="input-group mb-3">
-                    <select class="form-select" name="alergico" id="inputGroupSelect01">
-                      <option selected value="Si">1- No</option>
-                      <option value="No">2- Si</option>
-                    </select>
-                  </div>
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Observaciones</label>
-                <input type="text-area" class="form-control" name="observaciones">
-              </div>
-
-              <div class="mb-3 col-6">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="submit" class="btn btn-primary">Cancelar</button>
-              </div>
-        </form>
-    </main>
-
-
-
+            </div>
+          </div>
+        </div>
+      </div>
+</main>
 
 {% endblock %}

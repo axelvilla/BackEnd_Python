@@ -1,61 +1,99 @@
-{% extends './layuot.html' %}
+{% extends './layuot.html' %} {% block main %}
+<main class="text-center align-middle position-relative">
+  <form class="form" action="/actualizar" method="post">
+    <div class="row">
+      <div class="mb-3 col-1 text-start">
+        <label class="form-label">Id</label>
+        <input
+          type="text"
+          class="form-control"
+          name="id"
+          value="{{mascota.0}}"
+        />
+      </div>
 
-{% block main %}
-    <main class="text-center align-middle position-relative">
-        <form class="form" action="/editar" method="post">
+      <div class="mb-3 col-4 text-start">
+        <label class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          name="nombre"
+          value="{{mascota.1}}"
+        />
+      </div>
 
-            <div class="mb-3 col-6 text-start">
-                <label class="form-label">Id</label>
-                <input type="text" class="form-control" name="id" value="{{mascota.0}}">
+      <div class="mb-3 col-4 text-start">
+        <label class="form-label">Apellido</label>
+        <input
+          type="text"
+          class="form-control"
+          name="apellido"
+          value="{{mascota.2}}"
+        />
+      </div>
+
+      <div class="mb-3 col-3 text-start">
+        <label class="form-label">Raza</label>
+        <input
+          type="text"
+          class="form-control"
+          name="raza"
+          value="{{mascota.3}}"
+        />
+      </div>
+
+      <div class="mb-3 col-3 text-start">
+        <label class="form-label">Color</label>
+        <input
+          type="text"
+          class="form-control"
+          name="color"
+          value="{{mascota.4}}"
+        />
+      </div>
+
+      <div class="mb-3 col-3 text-start">
+        <label class="form-label">Alergico</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="alergico"
+            id="inputGroupSelect01"
+            value="{{mascota.5}}"
+          >
+            <option value="Si">1- No</option>
+            <option value="No">2- Si</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3 col-6 text-start">
+        <label class="form-label">Observaciones</label>
+        <input
+          type="text-area"
+          class="form-control"
+          name="observaciones"
+          value="{{mascota.6}}"
+        />
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <form action="/actualizar" method="POST">
+              <input type="hidden" name="codigo" value="{{ mascota[0] }}">
+              <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-11 mb-3">
+                <a href="/ver_datos" class="btn btn-danger">Cancelar</a>
               </div>
-
-            <div class="mb-3 col-6 text-start">
-                <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" value="{{mascota.1}}">
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido" value="{{mascota.2}}">
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Raza</label>
-                <input type="text" class="form-control" name="raza" value="{{mascota.3}}">
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Color</label>
-                <input type="text" class="form-control" name="color" value="{{mascota.4}}">
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Alergico</label>
-                <div class="input-group mb-3">
-                    <select class="form-select" name="alergico" id="inputGroupSelect01" value="{{mascota.5}}">
-                      <option selected>Seleccionar</option>
-                      <option selected value="Si">1- No</option>
-                      <option value="No">2- Si</option>
-                    </select>
-                  </div>
-              </div>
-
-              <div class="mb-3 col-6 text-start">
-                <label class="form-label">Observaciones</label>
-                <input type="text-area" class="form-control" name="observaciones" value="{{mascota.6}}">
-              </div>
-
-              <div class="mb-3 col-6">
-                <form action="/" method="put">
-                  <input type="text" name="codigo" id="" value="{{mascota[0]}}">
-                  <button type="submit" class="btn btn-primary">Actualizar</button>
-                  <button type="submit" class="btn btn-primary">Cancelar</button>
-                </form>
-              </div>
-        </form>
-    </main>
-
-
-
+            </div>
+          </div>
+        </div>
+      </div>
+</main>
 
 {% endblock %}
