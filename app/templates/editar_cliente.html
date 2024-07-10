@@ -2,52 +2,55 @@
 
 {% block main %}
     <main class="text-center align-middle position-relative">
-        <form class="form" action="/ingresar_cliente" method="POST">
+        <form class="form" action="/editar" method="post">
 
             <div class="mb-3 col-6 text-start">
                 <label class="form-label">Id</label>
-                <input type="text" class="form-control" name="id" value="{{dato.0}}">
+                <input type="text" class="form-control" name="id" value="{{mascota.0}}">
               </div>
 
             <div class="mb-3 col-6 text-start">
                 <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" value="{{dato.1}}">
+                <input type="text" class="form-control" name="nombre" value="{{mascota.1}}">
               </div>
 
               <div class="mb-3 col-6 text-start">
                 <label class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido" value="{{dato.2}}">
+                <input type="text" class="form-control" name="apellido" value="{{mascota.2}}">
               </div>
 
               <div class="mb-3 col-6 text-start">
                 <label class="form-label">Raza</label>
-                <input type="text" class="form-control" name="raza" value="{{dato.3}}">
+                <input type="text" class="form-control" name="raza" value="{{mascota.3}}">
               </div>
 
               <div class="mb-3 col-6 text-start">
                 <label class="form-label">Color</label>
-                <input type="text" class="form-control" name="color" value="{{dato.4}}">
+                <input type="text" class="form-control" name="color" value="{{mascota.4}}">
               </div>
 
               <div class="mb-3 col-6 text-start">
                 <label class="form-label">Alergico</label>
                 <div class="input-group mb-3">
-                    <select class="form-select" name="alergico" id="inputGroupSelect01" value="{{dato.5}}">
+                    <select class="form-select" name="alergico" id="inputGroupSelect01" value="{{mascota.5}}">
                       <option selected>Seleccionar</option>
-                      <option value="Si">1- Si</option>
-                      <option value="No">2- No</option>
+                      <option selected value="Si">1- No</option>
+                      <option value="No">2- Si</option>
                     </select>
                   </div>
               </div>
 
               <div class="mb-3 col-6 text-start">
                 <label class="form-label">Observaciones</label>
-                <input type="text-area" class="form-control" name="observaciones" value="{{dato.6}}">
+                <input type="text-area" class="form-control" name="observaciones" value="{{mascota.6}}">
               </div>
 
               <div class="mb-3 col-6">
-                <button type="submit" class="btn btn-primary">Actualizar</button>
-                <button type="submit" class="btn btn-primary">Cancelar</button>
+                <form action="/" method="put">
+                  <input type="text" name="codigo" id="" value="{{mascota[0]}}">
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
+                  <button type="submit" class="btn btn-primary">Cancelar</button>
+                </form>
               </div>
         </form>
     </main>

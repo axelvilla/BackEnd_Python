@@ -72,9 +72,46 @@ def editar():
     finally:
          cursor.close()
          conexion.close()
-    return render_template('editar_cliente.html', dato = mascota[0])
-     
+    return render_template('editar_cliente.html', mascota = mascota[0])
+    
 
+@app.route('/actualizar', methods = ['POST'])
+def actualizar():
+    mascota = ()
+    codigo = request.form['codigo']
+    nombre = request.form['nombre']
+    apellido = request.form['apellido']
+    raza = request.form['raza']
+    color = request.form['color']
+    alergico = request.form['alergico']
+    observaciones = request.form['observaciones']
+    try:
+         conexion = obtener_conexion()
+         cursor = conexion.cursor()
+         cursor.execute("UPDATE mascota SET nombre = %s, apellido = %s, raza = %s, color = %s, alergico = %s, observaciones = %s WHERE id = %s", [nombre, apellido, raza, color, alergico, observaciones,codigo])
+         #mascota = cursor.fetchall()
+         conexion.commit()
+         
+    finally:
+         cursor.close()
+         conexion.close()
+    #return render_template('ver_datos.html', mascota = mascota)
+    return redirect('/ver_datos')
+
+@app.route('/borrar', methods = ['POST'])
+def borrar():
+    codigo = request.form['codigo']
+    try:
+         conexion = obtener_conexion()
+         cursor = conexion.cursor()
+         cursor.execute("DELETE FROM mascota WHERE id = %s", [codigo])
+         cursor.fetchall()
+         conexion.commit()
+    finally:
+         cursor.close()
+         conexion.close()
+    return redirect('ver_datos')
+     
 
 if __name__ == '__main__':
     app.run(debug=True)
