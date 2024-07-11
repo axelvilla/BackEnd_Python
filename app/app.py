@@ -84,6 +84,7 @@ def actualizar():
     color = request.form['color']
     alergico = request.form['alergico']
     observaciones = request.form['observaciones']
+
     try:
          conexion = obtener_conexion()
          cursor = conexion.cursor()
@@ -94,6 +95,7 @@ def actualizar():
          cursor.close()
          conexion.close()
     return redirect('ver_datos')
+
 
 @app.route('/borrar', methods = ['POST'])
 def borrar():
